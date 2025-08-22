@@ -16,8 +16,9 @@ def num_gan():
 #crear lista de los numeros ingresados
 def num_ing():     
     n_i=list()
+    print("Ingrese 6 numeros entre 1 y 36, sin repetirlos.")
     while len(n_i) < 6:
-        n=int(input("Ingrese un numero entre 1 y 36: "))
+        n=int(input("Ingrese su numero: "))
         if n not in n_i and 1<=n<=36:
             n_i.append(n)
     
@@ -34,11 +35,31 @@ def comparar(n,y):
     for x in range(len(n)):
         if n[x] in y:  
             c=c+1
-    print(sorted(n))
-    print(sorted(y))
+
+    print("Numeros ganadores:")
+    print(n)
+    print("Numeros ingresados:")
+    print(y)
     return c
     
 
-print("juego de la tinka ")
+print("===== Bienvenido a La Tinka =====")
 
-print(comparar(num_gan(), num_ing()))
+aciertos = comparar(num_gan(), num_ing())
+
+print("Su numero de aciertos fue:", aciertos)
+if 1 < aciertos <= 3:
+    print("Usted ha ganado otro Intento")
+
+if aciertos == 4:
+    print("USTED HA GANADO 5000 SOLES")
+
+if aciertos == 5:
+    print("USTED HA GANADO 10000 SOLES")
+
+if aciertos == 6:
+    print("USTED HA EL PREMIO MAYOR ")
+    print("!! 7 MILLONES DE SOLES !!")
+    print("!! FELICITACIONES !!")
+else:
+    print("Lo sentimos, no ha ganado esta vez.")
